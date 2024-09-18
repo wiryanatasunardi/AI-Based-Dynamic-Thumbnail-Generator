@@ -1,3 +1,5 @@
+# Import Library
+
 from tensorflow.keras.applications.vgg16 import preprocess_input
 from tensorflow.keras.applications import VGG16
 from fastapi.staticfiles import StaticFiles
@@ -10,10 +12,12 @@ import pytube
 import numpy as np
 import aiohttp
 import cv2 
+import os
 
 # Load The Pre-Trained CNN Model with VGG16 Architecture
 model = VGG16(weights='imagenet', include_top=False)
 
+# Function to Download Video from YouTube URL
 def download_video(video_url: str, output_path: str) -> str:
     try:
         yt = YouTube(video_url, on_progress_callback=on_progress)
@@ -38,6 +42,7 @@ def download_video(video_url: str, output_path: str) -> str:
     except Exception as e:
         raise Exception(f"An error occurred: {str(e)}")
 
+# Function to Extract Keyframes from Video
 def extract_keyframes_from_video(video_path: str, frame_rate: int = 1) -> list:
     """
     Extract frames from video at a specific frame rate (frames per second)
@@ -59,6 +64,7 @@ def extract_keyframes_from_video(video_path: str, frame_rate: int = 1) -> list:
     cap.release()
     return frame_list
 
+# Function to Preprocess Frame
 def preprocess_frame(frame):
     """
     Preprocess the frame to feed into the CNN model.
@@ -68,6 +74,7 @@ def preprocess_frame(frame):
     frame_array = np.expand_dims(frame_resized, axis=0)
     return preprocess_input(frame_array)
 
+# Applied AI Model to Extract Features and Identify Frames That are Informative
 def extract_features(frames):
     """
     Use CNN to extract features for all frames.
@@ -79,14 +86,17 @@ def extract_features(frames):
         features.append(np.mean(feature))  # Mean of Extracted Features (Simplified Selection Criterion)
     return features
 
+# Function to Select Keyframes
 def select_keyframes(frames, features, num_keyframes=15):
     """
     Select keyframes based on the highest-scoring features.
     """
-    keyframe_indices = np.argsort(features)[-num_keyframes:]  # Select Top N keyframes
+    # Select Top N keyframes
+    keyframe_indices = np.argsort(features)[-num_keyframes:]  
     keyframes = [frames[i] for i in sorted(keyframe_indices)]
     return keyframes
 
+# Function to Generate GIF as Thumbnail
 def create_gif_from_keyframes(frames: list, output_gif: str) -> None:
     """
     Generate a GIF from selected keyframes.
