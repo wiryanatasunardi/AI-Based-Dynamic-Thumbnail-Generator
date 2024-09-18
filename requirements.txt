@@ -1,0 +1,14 @@
+aiohttp==3.8.1
+aiohttp==3.10.5
+fastapi==0.115.0
+moviepy==1.0.3
+numpy==1.21.4
+numpy==1.25.0
+opencv_contrib_python==4.5.3.56
+opencv_contrib_python==4.6.0.66
+opencv_python==4.5.3.56
+opencv_python==4.6.0.66
+pytube==15.0.0
+pytubefix==6.16.1
+tensorflow==2.17.0
+tensorflow_intel==2.17.0
