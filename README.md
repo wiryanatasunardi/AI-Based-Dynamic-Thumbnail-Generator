@@ -46,3 +46,11 @@ This project is a web application that will allow users to generate dynamic thum
 3. The web will process the video and generate an animated GIF thumbnail.
 4. The generated GIF will be displayed in the preview section.
 
+## Web Interface Preview
+![UI Screenshot](https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/Documentation/UI_Sample.png)
+
+## Video and Dynamic Thumbnail Preview
+Video             |  Dynamic Thumbnail
+:-------------------------:|:-------------------------:
+<img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/videos/VENOM%20THE%20LAST%20DANCE%20%20%E2%80%93%20Final%20Trailer%20(HD).webm" width="640" height="280" /> <img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/videos/Tate%20McRae%20-%20Greedy%20(Acoustic%20Session)%20NRJ.webm" width="640" height="280" /> |  <img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/thumbnails/VENOM%20THE%20LAST%20DANCE%20%20%E2%80%93%20Final%20Trailer%20(HD).webm.gif" width="640" height = "280" /> <img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/thumbnails/Tate%20McRae%20-%20Greedy%20(Acoustic%20Session)%20NRJ.webm.gif" width="640" height = "280" />  
+
