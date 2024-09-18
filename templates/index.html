@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Thumbnail Generator</title>
+    <!-- Use the relative path to the static folder for CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="banner">
+        <h1> Dynamic Thumbnail Generator</h1>
+    </div>
+
+    <div class="container">
+        <div class="left-section">
+            <form id="thumbnailForm">
+                <input type="text" id="videoUrl" placeholder="Enter Video URL" required>
+                <button type="submit">Generate Thumbnail</button>
+            </form>
+
+            <div class="loader">
+                <p>Generating thumbnail...</p>
+            </div>
+
+            <div class="video-preview" id="videoPreview">
+                <!-- Video preview will appear here -->
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="thumbnail" id="thumbnailResult">
+                <!-- Generated GIF will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('thumbnailForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const videoUrl = document.getElementById('videoUrl').value;
+            const loader = document.querySelector('.loader');
+            const thumbnailResult = document.getElementById('thumbnailResult');
+            const videoPreview = document.getElementById('videoPreview');
+            loader.style.display = 'block';
+            thumbnailResult.innerHTML = '';
+
+            try {
+                const response = await fetch('/generate-thumbnail/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ video_url: videoUrl })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const gifUrl = data.gif_url;
+                    const videoFilename = data.video_filename
+                    videoPreview.innerHTML = `<video width="100%" controls><source src="/videos/${videoFilename}" type="video/mp4"></video>`;
+                    thumbnailResult.innerHTML = `<img src="${gifUrl}" alt="Video Thumbnail">`;
+                } else {
+                    thumbnailResult.innerHTML = '<p>Failed to generate thumbnail.</p>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                thumbnailResult.innerHTML = '<p>There was an error generating the thumbnail.</p>';
+            } finally {
+                loader.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
