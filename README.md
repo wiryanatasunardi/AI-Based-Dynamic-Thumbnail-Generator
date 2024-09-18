@@ -10,7 +10,7 @@ This project is a web application that will allow users to generate dynamic thum
 
 ## Project Directory Tree
 
-''' bash
+```bash
 /project-directory/
 ├── Thumbnail_Video_Generator/
 │   ├── static/
@@ -20,5 +20,5 @@ This project is a web application that will allow users to generate dynamic thum
 │   ├── videos/              # Folder for storing downloaded videos
 │   ├── thumbnails/          # Folder for storing generated GIFs
 │   └── app.py               # FastAPI application backend
-'''
+```
 
