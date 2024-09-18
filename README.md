@@ -49,8 +49,8 @@ This project is a web application that will allow users to generate dynamic thum
 ## Web Interface Preview
 ![UI Screenshot](https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/Documentation/UI_Sample.png)
 
-## Video and Dynamic Thumbnail Preview
+## Dynamic Thumbnail Preview
 Dynamic Thumbnail
 :-------------------------:
-<img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/thumbnails/VENOM%20THE%20LAST%20DANCE%20%20%E2%80%93%20Final%20Trailer%20(HD).webm.gif" width="640" height = "480" /> <img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/thumbnails/Tate%20McRae%20-%20Greedy%20(Acoustic%20Session)%20NRJ.webm.gif" width="640" height = "480" />  
+<img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/thumbnails/VENOM%20THE%20LAST%20DANCE%20%20%E2%80%93%20Final%20Trailer%20(HD).webm.gif" width="720" height = "480" /> <img src="https://github.com/wiryanatasunardi/AI-Based-Dynamic-Thumbnail-Generator/blob/main/thumbnails/Tate%20McRae%20-%20Greedy%20(Acoustic%20Session)%20NRJ.webm.gif" width="720" height = "480" />  
 
