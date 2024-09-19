@@ -8,6 +8,18 @@ This project is a web application that will allow users to generate dynamic thum
 - Generate a GIF thumbnail from selected frames
 - Support video upscaling to HD resolution before GIF generation
 
+## Project Overview
+The AI-based Dynamic Thumbnail Generator is a web-based application designed to generate animated GIF thumbnails from YouTube videos. By leveraging advanced deep learning techniques, the application automatically selects keyframes from a video to create a dynamic thumbnail that visually summarizes the content. This project streamlines the process of creating engaging video previews through the following workflow:
+
+### 1. Video Downloading
+Once a YouTube URL is provided, the video is downloaded in High Resolution (1080p) using the pytubefix library. The downloaded video is saved in the videos folder for further processing.
+
+### 2. Keyframe Selection and Extraction
+After the video is downloaded, it is broken down into individual frames. These frames are sampled based on the video's frame rate. The selected frames are then passed through a Convolutional Neural Network (CNN), specifically the VGG16 architecture, to extract the frame features. The CNN model identifies keyframes that are considered the most informative. These keyframes are then sorted according to their feature scores.
+
+### Dynamic Thumbnail Generation
+The top-ranked keyframes are then compiled to generate a dynamic thumbnail in the form of a GIF. This GIF represents a visual summary of the video, providing a quick and engaging preview. The generated thumbnail is displayed alongside the original video for comparison in the web interface
+
 ## Project Directory Tree
 
 ```bash
